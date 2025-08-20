@@ -1,7 +1,7 @@
 
-# My interactive Resume
+# About
 
-My interactive Resume website for my... Well, resume and portfolio.
+The website of my interactive resume.
 
 # Run
 
