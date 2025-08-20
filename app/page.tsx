@@ -1,13 +1,26 @@
 
 
+import picture from "../public/resume-picture.webp";
+
 function Header() {
   return (
-    <section className="w-full h-[250px] p-5 flex flex-col border-2 border-solid border-white rounded-sm">
+    <section className="w-full h-[250px] p-5 flex flex-col border-2 border-solid border-white rounded-sm"> {/* TODO: make this whole layout responsible. */}
       {/* TODO: DIV hell */}
       <div className="w-full h-full flex flex-row">
-        <div className="w-full h-full border-2 border-solid border-white">Picture</div>
-        <div className="w-full h-full border-2 border-solid border-white">Info.</div>
-        <nav className="w-full h-full border-2 border-solid border-white">Data</nav>
+        <section className="h-full">
+	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[200px] h-[150px] rounded-full" /> {/* TODO: prepare another picture. */}
+	</section>
+        <section className="w-full h-full p-3">
+	  <span className="text-xl font-bold">Daniel Teixeira</span>
+	  <p>
+	    Front End Developer
+	  </p>
+	  <ul className="list-disc list-inside m-2 pl-3">
+	    <li>Three+ years of React, Javscript and Typescript;</li>
+	    <li>Open to work in a fast and highly collaborative environment, being the "swiss army knife" for every problem;</li>
+	  </ul>
+	</section>
+        <nav className="w-1/3 h-full border-2 border-solid border-white">Data</nav>
       </div>
       <nav className="w-full h-1/4 border-2 border-solid border-white"></nav>
     </section>
