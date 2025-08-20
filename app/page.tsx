@@ -2,9 +2,10 @@
 
 import picture from "../public/resume-picture.webp";
 
+
 function Header() {
   return (
-    <section className="w-full h-[250px] p-5 flex flex-col border-2 border-solid border-white rounded-sm"> {/* TODO: make this whole layout responsible. */}
+    <section className="w-full h-[250px] p-5 flex flex-col bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
       {/* TODO: DIV hell */}
       <div className="w-full h-full flex flex-row">
         <section className="h-full">
@@ -18,9 +19,13 @@ function Header() {
 	  <ul className="list-disc list-inside m-2 pl-3">
 	    <li>Three+ years of React, Javscript and Typescript;</li>
 	    <li>Open to work in a fast and highly collaborative environment, being the "swiss army knife" for every problem;</li>
+	    <li>Strong writing skills and a true lover of challenges;</li>
 	  </ul>
 	</section>
-        <nav className="w-1/3 h-full border-2 border-solid border-white">Data</nav>
+	<div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
+	<nav className="w-1/3 h-full p-3 text-xs">
+	  nunesteixeiradaniel12@gmail.com
+	</nav>
       </div>
       <nav className="w-full h-1/4 border-2 border-solid border-white"></nav>
     </section>
@@ -65,7 +70,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full p-5 flex flex-row justify-center">
-        <main className="w-2/3 flex flex-col gap-3">
+        <main className="w-3/4 flex flex-col gap-3">
 	  <Header />
 	  <Timeline />
 	  <Experience />
