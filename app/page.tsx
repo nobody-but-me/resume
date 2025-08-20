@@ -17,7 +17,7 @@ function Header() {
 function Timeline() {
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center border-2 border-solid border-white rounded-sm">
-      <div className="h-[1px] border-1 border-solid border-white mb-1 mt-1 p-0"></div> {/* Timeline main division */}
+      <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div> {/* Timeline main division */}
       <div className="flex flex-row justify-between">
         <span>2018</span>
 	<span>2020</span>
@@ -33,8 +33,11 @@ function Experience() {
     <section className="w-full h-full p-5 flex flex-row justify-center border-2 border-solid border-white rounded-sm">
       <section className="w-1/3 h-full p-5"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
+	<p>
+	  Skills buttons.
+	</p>
       </section>
-      <div className="w-[1px] border-1 border-solid border-white mr-1 ml-1 p-o"></div>
+      <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
       <section className="w-full h-full p-5"> {/* Experience Panel */}
         <span className="text-xl font-bold">Experience</span>
 	<p>
@@ -49,7 +52,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full p-5 flex flex-row justify-center">
-        <main className="w-2/3 border-2 border-solid border-white flex flex-col">
+        <main className="w-2/3 flex flex-col gap-3">
 	  <Header />
 	  <Timeline />
 	  <Experience />
