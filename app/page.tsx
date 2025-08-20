@@ -28,13 +28,31 @@ function Timeline() {
   );
 }
 
+function Experience() {
+  return (
+    <section className="w-full h-full p-5 flex flex-row justify-center border-2 border-solid border-white rounded-sm">
+      <section className="w-1/3 h-full p-5"> {/* Filters */}
+        <span className="text-xl font-bold">Skills</span>
+      </section>
+      <div className="w-[1px] border-1 border-solid border-white mr-1 ml-1 p-o"></div>
+      <section className="w-full h-full p-5"> {/* Experience Panel */}
+        <span className="text-xl font-bold">Experience</span>
+	<p>
+	  Experience text.
+	</p>
+      </section>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      <div className="w-full h-screen p-5 flex flex-row justify-center">
+      <div className="w-full p-5 flex flex-row justify-center">
         <main className="w-2/3 border-2 border-solid border-white flex flex-col">
 	  <Header />
 	  <Timeline />
+	  <Experience />
         </main>
       </div>
     </>
