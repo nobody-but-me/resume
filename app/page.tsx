@@ -52,10 +52,16 @@ function Header() {
   );
 }
 
+function Line({colour, width}) {
+  return <div className="h-[5px] mr-1 ml-1 p-0" style={{backgroundColor: `${colour}`, width: `${width}`}}></div>;
+}
+
 function Timeline() {
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
-      <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div> {/* Timeline main line */}
+      <Line colour="orange" width="50%" />
+      
+      <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 mt-5 p-0"></div> {/* Timeline main line */}
       <div className="flex flex-row justify-between">
         <span>2018</span>
 	<span>2020</span>
