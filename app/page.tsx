@@ -26,7 +26,7 @@ function Header() {
 	  </p>
 	  <ul className="list-disc list-inside m-2 pl-3">
 	    <li>Three+ years of React, Javscript and Typescript.</li>
-	    <li>Open to work in a fast and highly collaborative environment, being the "swiss army knife" for every problem.</li>
+	    <li>Open to work in a fast and highly collaborative environment, truly being the "swiss army knife" for every kind of problem.</li>
 	    <li>Strong writing skills and a true lover of challenges.</li>
 	  </ul>
 	</section>
@@ -59,29 +59,38 @@ function TruncatedLabel({text, max_length}) {
     textOverflow: 'ellipsis',
     maxWidth: `${max_length}ch`
   };
-  return <div style={style}>{text}</div>;
+  return <div className="text-xs" style={style}>{text}</div>;
 }
 
-function Line({text, colour, width}) {
+function Line({text, colour, width, text_length = 0}) {
   return (
     <div style={{width: `${width}`}}>
-      <span className="flex flex-row justify-center"><TruncatedLabel text={text} max_length={15} /></span>
+      <span className="pl-3 pr-3 flex flex-row justify-center text-white hover:text-gray-400 cursor-pointer transition-all"><TruncatedLabel text={text} max_length={(text_length == 0) ? 15 : text_length} /></span>
       <div className="h-[5px] m-1 p-0 w-full" style={{backgroundColor: `${colour}`}}></div>
     </div>
   );
 }
 
 function Timeline() {
+  // TODO: change the colour pallete.
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
-      <Line text="experience experience" colour="orange" width="50%" />
+      <div className="flex flex-row justify-start gap-1">
+        <Line text="3D games student" colour="#a6a4f3" width="15%" />
+        <Line text_width={35} text="Godot Game Developer" colour="#5332e3" width="30%" />
+      </div>
+      <div className="flex flex-col items-end justify-center">
+        <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="28%" />
+        <Line text_length={25} text="Full-Stack Developer" colour="#f58525" width="20%" />
+      </div>
       
       <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 mt-5 p-0"></div> {/* Timeline main line */}
       <div className="flex flex-row justify-between">
         <span>2018</span>
 	<span>2020</span>
-	<span>2023</span>
-        <span>Present</span>
+	<span>2022</span>
+	<span>2024</span>
+        <span className="w-1/4">2025 (Present)</span>
       </div>
     </section>
   );
