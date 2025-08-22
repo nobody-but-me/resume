@@ -3,6 +3,15 @@
 import picture from "../public/resume-picture.webp";
 
 
+function Dot({text}) {
+  return (
+    <div className="flex flex-row items-center">
+      <span className="h-1 w-1 border-2 border-solid border-white"></span>
+      <span className="mr-2 ml-2 text-white cursor-pointer hover:text-gray-400 transition-all">{text}</span>
+    </div>
+  );
+}
+
 function Header() {
   return (
     <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
@@ -16,24 +25,29 @@ function Header() {
 	    Front End Developer
 	  </p>
 	  <ul className="list-disc list-inside m-2 pl-3">
-	    <li>Three+ years of React, Javscript and Typescript;</li>
-	    <li>Open to work in a fast and highly collaborative environment, being the "swiss army knife" for every problem;</li>
-	    <li>Strong writing skills and a true lover of challenges;</li>
+	    <li>Three+ years of React, Javscript and Typescript.</li>
+	    <li>Open to work in a fast and highly collaborative environment, being the "swiss army knife" for every problem.</li>
+	    <li>Strong writing skills and a true lover of challenges.</li>
 	  </ul>
 	</section>
 	<div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
 	
-	<div className="w-1/3 h-full flex flex-col gap-2 justify-start">
-	  <nav className="w-full text-xs">nunesteixeiradaniel12@gmail.com</nav>
-	  <nav className="w-full text-xs">55+ (16) 99355-2723</nav>
-	  <div className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
-	  <nav className="w-full text-xs">Personal Website</nav>
-	  <nav className="w-full text-xs">Linkedin</nav>
-	  <nav className="w-full text-xs">GitHub</nav>
-	</div>
+	<nav className="w-2/4 h-full flex flex-col gap-2 justify-start">
+	    <span className="w-full text-xs"><Dot text="nunesteixeiradaniel12@gmail.com"/></span>
+	    <span className="w-full text-xs"><Dot text="55+ (16) 99355-2723" /></span>
+	    <span className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></span>
+	    <span className="w-full text-xs"><Dot text="Personal Website" /></span>
+	    <span className="w-full text-xs"><Dot text="Linkedin" /></span>
+	    <span className="w-full text-xs"><Dot text="GitHub" /></span>
+	</nav>
       </div>
       <div className="h-[1px  border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
-      <nav className="w-full h-1/4 flex flex-row justify-center text-xs">Bauru, São Paulo - Brazil</nav>
+      <nav className="w-full h-1/4 flex flex-row justify-center items-center text-xs">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 ml-2 mr-2">
+	  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+	  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+	</svg>
+	Bauru, São Paulo - Brazil</nav>
     </section>
   );
 }
