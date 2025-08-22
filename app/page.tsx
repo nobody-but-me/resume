@@ -6,7 +6,6 @@ import picture from "../public/resume-picture.webp";
 function Header() {
   return (
     <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
-      {/* TODO: DIV hell */}
       <div className="w-full h-full flex flex-row gap-5 justify-between">
         <section className="h-full flex flex-col justify-center items-center">
 	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[160px] h-[100px] rounded-full" /> {/* TODO: prepare another picture. */}
@@ -34,14 +33,14 @@ function Header() {
 	</div>
       </div>
       <div className="h-[1px  border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
-      <nav className="w-full h-1/4 flex flex-row justify-center">Bauru, São Paulo - Brazil</nav>
+      <nav className="w-full h-1/4 flex flex-row justify-center text-xs">Bauru, São Paulo - Brazil</nav>
     </section>
   );
 }
 
 function Timeline() {
   return (
-    <section className="w-full h-[250px] p-5 flex flex-col justify-center border-2 border-solid border-white rounded-sm">
+    <section className="w-full h-[250px] p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
       <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div> {/* Timeline main line */}
       <div className="flex flex-row justify-between">
         <span>2018</span>
@@ -55,7 +54,7 @@ function Timeline() {
 
 function Experience() {
   return (
-    <section className="w-full h-full p-5 flex flex-row justify-center border-2 border-solid border-white rounded-sm">
+    <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
       <section className="w-1/3 h-full p-5"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
 	<p>
