@@ -52,14 +52,29 @@ function Header() {
   );
 }
 
-function Line({colour, width}) {
-  return <div className="h-[5px] mr-1 ml-1 p-0" style={{backgroundColor: `${colour}`, width: `${width}`}}></div>;
+function TruncatedLabel({text, max_length}) {
+  const style = {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    maxWidth: `${max_length}ch`
+  };
+  return <div style={style}>{text}</div>;
+}
+
+function Line({text, colour, width}) {
+  return (
+    <div style={{width: `${width}`}}>
+      <span className="flex flex-row justify-center"><TruncatedLabel text={text} max_length={15} /></span>
+      <div className="h-[5px] m-1 p-0 w-full" style={{backgroundColor: `${colour}`}}></div>
+    </div>
+  );
 }
 
 function Timeline() {
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
-      <Line colour="orange" width="50%" />
+      <Line text="experience experience" colour="orange" width="50%" />
       
       <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 mt-5 p-0"></div> {/* Timeline main line */}
       <div className="flex flex-row justify-between">
