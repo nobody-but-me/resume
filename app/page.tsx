@@ -64,8 +64,8 @@ function TruncatedLabel({text, max_length}) {
 
 function Line({text, colour, width, text_length = 0}) {
   return (
-    <div style={{width: `${width}`}}>
-      <span className="pl-3 pr-3 flex flex-row justify-center text-white hover:text-gray-400 cursor-pointer transition-all"><TruncatedLabel text={text} max_length={(text_length == 0) ? 15 : text_length} /></span>
+    <div style={{width: `${width}`, minWidth: `${width}`}}>
+      <span className="w-full flex flex-row justify-center text-white hover:text-gray-400 cursor-pointer transition-all"><TruncatedLabel text={text} max_length={(text_length == 0) ? 15 : text_length} /></span>
       <div className="h-[5px] m-1 p-0 w-full" style={{backgroundColor: `${colour}`}}></div>
     </div>
   );
@@ -73,15 +73,23 @@ function Line({text, colour, width, text_length = 0}) {
 
 function Timeline() {
   // TODO: change the colour pallete.
+  // TODO: standardize colours.
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
       <div className="flex flex-row justify-start gap-1">
         <Line text="3D games student" colour="#a6a4f3" width="15%" />
-        <Line text_width={35} text="Godot Game Developer" colour="#5332e3" width="30%" />
+        <Line text_length={25} text="Godot Game Developer" colour="#5332e3" width="30%" />
+        <div className="w-full"></div>
+        <Line text="Graphics Engine" colour="#5332e3" width="40%" />
       </div>
       <div className="flex flex-col items-end justify-center">
-        <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="28%" />
-        <Line text_length={25} text="Full-Stack Developer" colour="#f58525" width="20%" />
+        <div className="w-full flex flex-row justify-end gap-1">
+	  <span className="w-full"></span>
+          <Line text_length={15} text="Web-development course" colour="red" width="15%" />
+	  <span className="w-2/3"></span>
+          <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="28%" />
+	</div>
+        <Line text_length={25} text="Front-end Developer" colour="#f58525" width="20%" />
       </div>
       
       <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 mt-5 p-0"></div> {/* Timeline main line */}
@@ -120,7 +128,7 @@ export default function Home() {
   return (
     <>
       <div className="w-full p-5 flex flex-row justify-center">
-        <main className="w-3/4 flex flex-col gap-3">
+        <main className="w-[60em] flex flex-col gap-3">
 	  <Header />
 	  <Timeline />
 	  <Experience />
