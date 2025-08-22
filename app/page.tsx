@@ -5,11 +5,11 @@ import picture from "../public/resume-picture.webp";
 
 function Header() {
   return (
-    <section className="w-full h-[250px] p-5 flex flex-col bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
+    <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
       {/* TODO: DIV hell */}
-      <div className="w-full h-full flex flex-row">
-        <section className="h-full">
-	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[200px] h-[150px] rounded-full" /> {/* TODO: prepare another picture. */}
+      <div className="w-full h-full flex flex-row gap-5 justify-between">
+        <section className="h-full flex flex-col justify-center items-center">
+	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[160px] h-[100px] rounded-full" /> {/* TODO: prepare another picture. */}
 	</section>
         <section className="w-full h-full p-3">
 	  <span className="text-xl font-bold">Daniel Teixeira</span>
@@ -23,11 +23,18 @@ function Header() {
 	  </ul>
 	</section>
 	<div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
-	<nav className="w-1/3 h-full p-3 text-xs">
-	  nunesteixeiradaniel12@gmail.com
-	</nav>
+	
+	<div className="w-1/3 h-full flex flex-col gap-2 justify-start">
+	  <nav className="w-full text-xs">nunesteixeiradaniel12@gmail.com</nav>
+	  <nav className="w-full text-xs">55+ (16) 99355-2723</nav>
+	  <div className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
+	  <nav className="w-full text-xs">Personal Website</nav>
+	  <nav className="w-full text-xs">Linkedin</nav>
+	  <nav className="w-full text-xs">GitHub</nav>
+	</div>
       </div>
-      <nav className="w-full h-1/4 border-2 border-solid border-white"></nav>
+      <div className="h-[1px  border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
+      <nav className="w-full h-1/4 flex flex-row justify-center">Bauru, São Paulo - Brazil</nav>
     </section>
   );
 }
@@ -35,7 +42,7 @@ function Header() {
 function Timeline() {
   return (
     <section className="w-full h-[250px] p-5 flex flex-col justify-center border-2 border-solid border-white rounded-sm">
-      <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div> {/* Timeline main division */}
+      <div className="h-[1px] border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div> {/* Timeline main line */}
       <div className="flex flex-row justify-between">
         <span>2018</span>
 	<span>2020</span>
