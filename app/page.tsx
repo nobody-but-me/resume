@@ -1,7 +1,34 @@
 
-
+"use client";
+import React, { useState, useEffect } from 'react';
 import picture from "../public/resume-picture.webp";
 
+
+function Tooltip({ children, content }) {
+  // TODO: Style tooltip.
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    document.addEventListener('mousemove', function(e) {
+      let _content = document.getElementById("tooltip_content");
+      if (_content != null) {
+        _content.style.left = (e.clientX + 10) + 'px';
+        _content.style.top  = (e.clientY + 10) + 'px';
+      }
+    });
+  });
+  
+  return (
+    <div
+      className = "transition-all"
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      {children}
+      {isVisible && <div id="tooltip_content" className="absolute bg-[#242424] pointer-events-none border-2 border-solid border-white rounded-sm p-2">{content}</div> }
+    </div>
+  );
+}
 
 function Dot({text}) {
   return (
@@ -15,6 +42,18 @@ function Dot({text}) {
 function Header() {
   return (
     <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
+      <Tooltip 
+        content={(
+	  <div>
+	    <span className="text-md font-bold">Tooltip Title</span>
+	    <p className="text-xs">
+	      Tooltip text
+	    </p>
+	  </div>
+	)}
+      >
+        tooltip
+      </Tooltip>
       <div className="w-full h-full flex flex-row gap-5 justify-between">
         <section className="h-full flex flex-col justify-center items-center">
 	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[160px] h-[100px] rounded-full" /> {/* TODO: prepare another picture. */}
