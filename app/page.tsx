@@ -153,7 +153,7 @@ function SelectableButton(props) {
   const [selected, setSelected] = useState(false);
   
   const clicked = () => { setSelected(prev => !prev); };
-  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? 'red' : 'green' }}>{props.name}</button>;
+  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{props.name}</button>;
 }
 
 function Experience() {
@@ -163,29 +163,27 @@ function Experience() {
         <span className="text-xl font-bold">Skills</span>
 	<p className="mb-2">Front-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton name="TESTE" />
-	  <SelectableButton name="TESTE2" />
-	  <Button name="React" />
-	  <Button name="Redux" />
-	  <Button name="Next.js" />
-	  <Button name="JavaScript" />
-	  <Button name="HTML" />
-	  <Button name="CSS" />
-	  <Button name="Typescript" />
+	  <SelectableButton name="React" />
+	  <SelectableButton name="Redux" />
+	  <SelectableButton name="Next.js" />
+	  <SelectableButton name="JavaScript" />
+	  <SelectableButton name="HTML" />
+	  <SelectableButton name="CSS" />
+	  <SelectableButton name="Typescript" />
 	</div>
 	<p className="mt-2 mb-2">Back-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <Button name="Python" />
-	  <Button name="PostgreSQL" />
-	  <Button name="MySQL" />
+	  <SelectableButton name="Python" />
+	  <SelectableButton name="PostgreSQL" />
+	  <SelectableButton name="MySQL" />
 	</div>
 	<p className="mt-2 mb-2">Misc</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <Button name="Electron.js" />
-	  <Button name="Linux" />
-	  <Button name="Git" />
-	  <Button name="C/C++" />
-	  <Button name="OpenGL" />
+	  <SelectableButton name="Electron.js" />
+	  <SelectableButton name="Linux" />
+	  <SelectableButton name="Git" />
+	  <SelectableButton name="C/C++" />
+	  <SelectableButton name="OpenGL" />
 	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
