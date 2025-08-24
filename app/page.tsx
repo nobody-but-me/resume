@@ -149,41 +149,48 @@ function Button(props) {
   return <button onClick={props.click} className="w-full bg-[#242424] pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:bg-[#070707] hover:scale-105 transition-all">{props.name}</button>;
 }
 
-function SelectableButton(props) {
+function SelectableButton({text, click}) {
   const [selected, setSelected] = useState(false);
-  
-  const clicked = () => { setSelected(prev => !prev); };
-  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{props.name}</button>;
+  const clicked = () => {
+    const new_select = !selected;
+    if (click) click(new_select);
+    setSelected(new_select);
+  };
+  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{text}</button>;
 }
 
 function Experience() {
+  
+  const [ filter, setFilter ] = useState("All");
+  
+  const setting_filter = (selected) => { alert(selected); return; };
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
       <section className="w-1/3 h-full p-5 flex flex-col"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
 	<p className="mb-2">Front-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton name="React" />
-	  <SelectableButton name="Redux" />
-	  <SelectableButton name="Next.js" />
-	  <SelectableButton name="JavaScript" />
-	  <SelectableButton name="HTML" />
-	  <SelectableButton name="CSS" />
-	  <SelectableButton name="Typescript" />
+	  <SelectableButton text="React" click={setting_filter}/>
+	  <SelectableButton text="Redux" />
+	  <SelectableButton text="Next.js" />
+	  <SelectableButton text="JavaScript" />
+	  <SelectableButton text="HTML" />
+	  <SelectableButton text="CSS" />
+	  <SelectableButton text="Typescript" />
 	</div>
 	<p className="mt-2 mb-2">Back-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton name="Python" />
-	  <SelectableButton name="PostgreSQL" />
-	  <SelectableButton name="MySQL" />
+	  <SelectableButton text="Python" />
+	  <SelectableButton text="PostgreSQL" />
+	  <SelectableButton text="MySQL" />
 	</div>
 	<p className="mt-2 mb-2">Misc</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton name="Electron.js" />
-	  <SelectableButton name="Linux" />
-	  <SelectableButton name="Git" />
-	  <SelectableButton name="C/C++" />
-	  <SelectableButton name="OpenGL" />
+	  <SelectableButton text="Electron.js" />
+	  <SelectableButton text="Linux" />
+	  <SelectableButton text="Git" />
+	  <SelectableButton text="C/C++" />
+	  <SelectableButton text="OpenGL" />
 	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
