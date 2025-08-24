@@ -25,7 +25,7 @@ function Tooltip({ children, content }) {
       onMouseLeave={() => setIsVisible(false)}
     >
       {children}
-      {isVisible && <div id="tooltip_content" className="absolute bg-[#242424] pointer-events-none border-2 border-solid border-white rounded-sm p-2">{content}</div> }
+      {isVisible && <div id="tooltip_content" className="absolute bg-[#242424] pointer-events-none rounded-sm p-2">{content}</div> }
     </div>
   );
 }
@@ -121,15 +121,15 @@ function Timeline() {
 	  <span className="w-full"></span>
           <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="35%" tooltip_title="B.S. in Journalism and Computer Science" tooltip_text="Universidade Estadual Paulista 'Júlio de Mesquita Filho' (UNESP)" />
 	</div>
-	<Line text_length={25} text="C/C++ Developer" colour="cyan" width="70%" />
+	<Line text_length={25} text="C/C++ Developer" colour="cyan" width="70%" tooltip_title="C/C++ Developer" tooltip_text="Student and non-professional contact" />
 	<div className="w-full flex flex-row items-center justify-end gap-1">
 	  <span className="w-full"></span>
-          <Line text_length={15} text="Web-development course" colour="red" width="30%" />
+          <Line text_length={15} text="Web-development course" colour="red" width="30%" tooltip_title="General web-development course" tooltip_text="ISPAC São Paulo’s arts and culture institute" />
 	  <span className="w-3/3"></span>
-	  <Line text_length={25} text="Front-end Developer" colour="orange" width="25%" />
+	  <Line text_length={25} text="Front-end Developer" colour="orange" width="25%" tooltip_title="Front-end Developer" tooltip_text="Desperta Startup (May, 2025 - )" />
 	</div>
 	<div className="w-full flex flex-row items-center justify-end">
-          <Line text_length={10} text="E-commerce website" colour="cyan" width="10%" />
+          <Line text_length={10} text="E-commerce website" colour="cyan" width="10%" tooltip_title="E-Commerce WebSite" tooltip_text="BNAP Atas públicas, for Desperta Startup." />
 	  <div className="w-[25px]"></div>
 	</div>
       </div>
@@ -145,14 +145,18 @@ function Timeline() {
   );
 }
 
+function Button(props) {
+  return <button onClick={props.click} className="bg-[#242424] mt-2 mb-2 pt-1 pb-1 cursor-pointer rounded-sm text-md hover:bg-[#070707]">{props.name}</button>;
+}
+
 function Experience() {
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
       <section className="w-1/3 h-full p-5"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
-	<p>
-	  Skills buttons.
-	</p>
+	<div className="w-full h-full flex flex-col justify-start">
+	<Button name="Click Me" />
+	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
       <section className="w-full h-full p-5"> {/* Experience Panel */}
