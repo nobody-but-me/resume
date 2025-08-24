@@ -149,6 +149,13 @@ function Button(props) {
   return <button onClick={props.click} className="w-full bg-[#242424] pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:bg-[#070707] hover:scale-105 transition-all">{props.name}</button>;
 }
 
+function SelectableButton(props) {
+  const [selected, setSelected] = useState(false);
+  
+  const clicked = () => { setSelected(prev => !prev); };
+  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? 'red' : 'green' }}>{props.name}</button>;
+}
+
 function Experience() {
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
@@ -156,6 +163,8 @@ function Experience() {
         <span className="text-xl font-bold">Skills</span>
 	<p className="mb-2">Front-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
+	  <SelectableButton name="TESTE" />
+	  <SelectableButton name="TESTE2" />
 	  <Button name="React" />
 	  <Button name="Redux" />
 	  <Button name="Next.js" />
