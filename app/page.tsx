@@ -12,8 +12,8 @@ function Tooltip({ children, content }) {
     document.addEventListener('mousemove', function(e) {
       let _content = document.getElementById("tooltip_content");
       if (_content != null) {
-        _content.style.left = (e.clientX + 10) + 'px';
-        _content.style.top  = (e.clientY + 10) + 'px';
+        _content.style.left = (e.pageX + 10) + 'px';
+        _content.style.top  = (e.pageY + 10) + 'px';
       }
     });
   });
@@ -42,18 +42,6 @@ function Dot({text}) {
 function Header() {
   return (
     <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
-      <Tooltip 
-        content={(
-	  <div>
-	    <span className="text-md font-bold">Tooltip Title</span>
-	    <p className="text-xs">
-	      Tooltip text
-	    </p>
-	  </div>
-	)}
-      >
-        tooltip
-      </Tooltip>
       <div className="w-full h-full flex flex-row gap-5 justify-between">
         <section className="h-full flex flex-col justify-center items-center">
 	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[160px] h-[100px] rounded-full" /> {/* TODO: prepare another picture. */}
@@ -101,10 +89,22 @@ function TruncatedLabel({text, max_length}) {
   return <div className="text-xs" style={style}>{text}</div>;
 }
 
-function Line({text, colour, width, text_length = 0}) {
+function Line({text, colour, width, text_length = 0, tooltip_title, tooltip_text, tooltip_tags}) { // TODO: too many arguments.
   return (
     <div style={{width: `${width}`, minWidth: `${width}`}}>
-      <span className="w-full mt-1 mb-2 flex flex-row justify-center text-white hover:text-gray-400 cursor-pointer transition-all"><TruncatedLabel text={text} max_length={(text_length == 0) ? 15 : text_length} /></span>
+      <Tooltip
+        content={(
+	  <div>
+	    <span className="text-md font-bold">{tooltip_title}</span>
+	    <p className="text-xs">
+	      {tooltip_text}
+	    </p>
+	    <span className="text-gray-300">{tooltip_tags}</span>
+	  </div>
+	)}
+      >
+        <span className="w-full mt-1 mb-2 flex flex-row justify-center text-white hover:text-gray-400 cursor-pointer transition-all"><TruncatedLabel text={text} max_length={(text_length == 0) ? 15 : text_length} /></span>
+      </Tooltip>
       <div className="h-[5px] m-1 p-0 w-full" style={{backgroundColor: `${colour}`}}></div>
     </div>
   );
@@ -117,9 +117,9 @@ function Timeline() {
     <section className="w-full p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
       <div className="flex flex-col items-end justify-center">
         <div className="w-full flex flex-row justify-end gap-1">
-	  <Line text_length={25} text="JavaScript Developer" colour="orange" width="25%" />
+	  <Line text_length={25} text="JavaScript Developer" colour="orange" width="25%" tooltip_title="Non-professional JavaScript Developer" tooltip_text="For small groups of game development and personal use."/>
 	  <span className="w-full"></span>
-          <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="35%" />
+          <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="35%" tooltip_title="B.S. in Journalism and Computer Science" tooltip_text="Universidade Estadual Paulista 'Júlio de Mesquita Filho' (UNESP)" />
 	</div>
 	<Line text_length={25} text="C/C++ Developer" colour="cyan" width="70%" />
 	<div className="w-full flex flex-row items-center justify-end gap-1">
