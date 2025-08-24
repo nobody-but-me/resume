@@ -12,8 +12,8 @@ function Tooltip({ children, content }) {
     document.addEventListener('mousemove', function(e) {
       let _content = document.getElementById("tooltip_content");
       if (_content != null) {
-        _content.style.left = (e.pageX + 10) + 'px';
-        _content.style.top  = (e.pageY + 10) + 'px';
+        _content.style.left = (e.pageX + 20) + 'px';
+        _content.style.top  = (e.pageY + 20) + 'px';
       }
     });
   });
@@ -117,7 +117,7 @@ function Timeline() {
     <section className="w-full p-5 flex flex-col justify-center bg-[#101010] rounded-sm">
       <div className="flex flex-col items-end justify-center">
         <div className="w-full flex flex-row justify-end gap-1">
-	  <Line text_length={25} text="JavaScript Developer" colour="orange" width="25%" tooltip_title="Non-professional JavaScript Developer" tooltip_text="For small groups of game development and personal use."/>
+	  <Line text_length={25} text="JavaScript Developer" colour="orange" width="40%" tooltip_title="Non-professional JavaScript Developer" tooltip_text="For small groups of game development and personal use."/>
 	  <span className="w-full"></span>
           <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="35%" tooltip_title="B.S. in Journalism and Computer Science" tooltip_text="Universidade Estadual Paulista 'Júlio de Mesquita Filho' (UNESP)" />
 	</div>
@@ -146,16 +146,37 @@ function Timeline() {
 }
 
 function Button(props) {
-  return <button onClick={props.click} className="bg-[#242424] mt-2 mb-2 pt-1 pb-1 cursor-pointer rounded-sm text-md hover:bg-[#070707]">{props.name}</button>;
+  return <button onClick={props.click} className="w-full bg-[#242424] pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:bg-[#070707] hover:scale-105 transition-all">{props.name}</button>;
 }
 
 function Experience() {
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
-      <section className="w-1/3 h-full p-5"> {/* Filters */}
+      <section className="w-1/3 h-full p-5 flex flex-col"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
-	<div className="w-full h-full flex flex-col justify-start">
-	<Button name="Click Me" />
+	<p className="mb-2">Front-end</p>
+	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
+	  <Button name="React" />
+	  <Button name="Redux" />
+	  <Button name="Next.js" />
+	  <Button name="JavaScript" />
+	  <Button name="HTML" />
+	  <Button name="CSS" />
+	  <Button name="Typescript" />
+	</div>
+	<p className="mt-2 mb-2">Back-end</p>
+	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
+	  <Button name="Python" />
+	  <Button name="PostgreSQL" />
+	  <Button name="MySQL" />
+	</div>
+	<p className="mt-2 mb-2">Misc</p>
+	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
+	  <Button name="Electron.js" />
+	  <Button name="Linux" />
+	  <Button name="Git" />
+	  <Button name="C/C++" />
+	  <Button name="OpenGL" />
 	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
