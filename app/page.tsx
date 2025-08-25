@@ -63,9 +63,9 @@ function Header() {
 	    <span className="w-full text-xs"><Dot text="nunesteixeiradaniel12@gmail.com"/></span>
 	    <span className="w-full text-xs"><Dot text="55+ (16) 99355-2723" /></span>
 	    <span className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></span>
-	    <span className="w-full text-xs"><Dot text="Personal Website" /></span>
-	    <span className="w-full text-xs"><Dot text="Linkedin" /></span>
-	    <span className="w-full text-xs"><Dot text="GitHub" /></span>
+	    <span className="w-full text-xs"><a target="blank" href="https://asgooffeeasme.neocities.org"><Dot text="Personal Website" /></a></span>
+	    <span className="w-full text-xs"><a target="blank" href="www.linkedin.com/in/daniel-nunes-teixeira"><Dot text="Linkedin" /></a></span>
+	    <span className="w-full text-xs"><a target="blank" href="https://github.com/nobody-but-me"><Dot text="GitHub" /></a></span>
 	</nav>
       </div>
       <div className="h-[1px  border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
@@ -161,8 +161,8 @@ function SelectableButton({text, click}) {
 
 function ExperienceCard({title, content, category}) {
   return (
-    <div className="bg-[#242424] w-full p-3 flex flex-col">
-      <span className="text-xl">{title}</span>
+    <div className="bg-[#242424] w-full p-3 flex flex-col rounded-sm">
+      <span className="text-xl font-bold">{title}</span>
       {content}
     </div>
   );
@@ -171,8 +171,18 @@ function ExperienceCard({title, content, category}) {
 function Experience() {
   
   const [ filters, setFilters ] = useState<string[]>([]);
+  // TODO: Refactoring needed.
   const cards = [
-    ["title", "text_body", "React"],
+    ["C/C++ Developer", (
+      <>
+        <p>
+	  C/C++ Student, being the most relevant projects a Graphics game engine which's still in development and generalist CLI applications.
+	</p>
+        <ul className="list-disc list-inside m-2 pl-3">
+	  <li>TESTE</li>
+	</ul>
+      </>
+    ), "C/C++"],
     ["title 2", "text_body 2", "Linux"],
   ];
   
@@ -186,33 +196,34 @@ function Experience() {
     setFilters(new_filters);
     return;
   };
+  
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
       <section className="w-1/3 h-full p-5 flex flex-col"> {/* Filters */}
         <span className="text-xl font-bold">Skills</span>
 	<p className="mb-2">Front-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton text="React" click={setting_filter}/>
-	  <SelectableButton text="Redux" />
-	  <SelectableButton text="Next.js" />
-	  <SelectableButton text="JavaScript" />
-	  <SelectableButton text="HTML" />
-	  <SelectableButton text="CSS" />
-	  <SelectableButton text="Typescript" />
+	  <SelectableButton text="React"      click={setting_filter} />
+	  <SelectableButton text="Redux"      click={setting_filter} />
+	  <SelectableButton text="Next.js"    click={setting_filter} />
+	  <SelectableButton text="JavaScript" click={setting_filter} />
+	  <SelectableButton text="HTML"       click={setting_filter} />
+	  <SelectableButton text="CSS"        click={setting_filter} />
+	  <SelectableButton text="Typescript" click={setting_filter} />
 	</div>
 	<p className="mt-2 mb-2">Back-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton text="Python" />
-	  <SelectableButton text="PostgreSQL" />
-	  <SelectableButton text="MySQL" />
+	  <SelectableButton text="Python"     click={setting_filter} />
+	  <SelectableButton text="PostgreSQL" click={setting_filter} />
+	  <SelectableButton text="MySQL"      click={setting_filter} />
 	</div>
 	<p className="mt-2 mb-2">Misc</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
-	  <SelectableButton text="Electron.js" />
-	  <SelectableButton text="Linux" />
-	  <SelectableButton text="Git" />
-	  <SelectableButton text="C/C++" />
-	  <SelectableButton text="OpenGL" />
+	  <SelectableButton text="Electron.js" click={setting_filter} />
+	  <SelectableButton text="Linux"       click={setting_filter} />
+	  <SelectableButton text="Git"         click={setting_filter} />
+	  <SelectableButton text="C/C++"       click={setting_filter} />
+	  <SelectableButton text="OpenGL"      click={setting_filter} />
 	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
@@ -220,7 +231,7 @@ function Experience() {
       <section className="w-full h-full p-5"> {/* Experience Panel */}
         <span className="text-xl font-bold">Experience</span>
 	<div className="flex flex-col justify-start pt-5 pb-5 gap-2">
-	  {/*TODO: refactor it. */}
+	  {/*TODO: need urgent refactoring. */}
 	  { filters.length === 0 ? (<>{cards.map((cards, idx) => <ExperienceCard key={idx} title={cards[0]} content={cards[1]} />)}</>) : (<>{filters.map((f, i) => (<div key={i}>{cards.map((cards, idx) => (cards[2] === f) ? <ExperienceCard key={idx} title={cards[0]} content={cards[1]} /> : <span key={idx}></span>)}</div>) )}</>) }
 	</div>
       </section>
