@@ -153,17 +153,39 @@ function SelectableButton({text, click}) {
   const [selected, setSelected] = useState(false);
   const clicked = () => {
     const new_select = !selected;
-    if (click) click(new_select);
+    if (click) click(new_select, text);
     setSelected(new_select);
   };
   return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{text}</button>;
 }
 
+function ExperienceCard({title, content, category}) {
+  return (
+    <div className="bg-[#242424] w-full p-3 flex flex-col">
+      <span className="text-xl">{title}</span>
+      {content}
+    </div>
+  );
+}
+
 function Experience() {
   
-  const [ filter, setFilter ] = useState("All");
+  const [ filters, setFilters ] = useState<string[]>([]);
+  const cards = [
+    ["title", "text_body", "React"],
+    ["title 2", "text_body 2", "Linux"],
+  ];
   
-  const setting_filter = (selected) => { alert(selected); return; };
+  const setting_filter = (selected, text) => { 
+    const new_filters = [...filters];
+    if (selected === true) new_filters.push(text);
+    else {
+      const idx = new_filters.indexOf(text);
+      if (idx > -1) new_filters.splice(idx, 1);
+    }
+    setFilters(new_filters);
+    return;
+  };
   return (
     <section className="w-full h-full p-5 flex flex-row justify-center bg-[#101010] rounded-sm">
       <section className="w-1/3 h-full p-5 flex flex-col"> {/* Filters */}
@@ -194,12 +216,15 @@ function Experience() {
 	</div>
       </section>
       <div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
+      
       <section className="w-full h-full p-5"> {/* Experience Panel */}
         <span className="text-xl font-bold">Experience</span>
-	<p>
-	  Experience text.
-	</p>
+	<div className="flex flex-col justify-start pt-5 pb-5 gap-2">
+	  {/*TODO: refactor it. */}
+	  { filters.length === 0 ? (<>{cards.map((cards, idx) => <ExperienceCard key={idx} title={cards[0]} content={cards[1]} />)}</>) : (<>{filters.map((f, i) => (<div key={i}>{cards.map((cards, idx) => (cards[2] === f) ? <ExperienceCard key={idx} title={cards[0]} content={cards[1]} /> : <span key={idx}></span>)}</div>) )}</>) }
+	</div>
       </section>
+      
     </section>
   );
 }
