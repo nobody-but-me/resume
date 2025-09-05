@@ -20,6 +20,27 @@
   }
 }
 
+a:link {
+    color: #5886fc;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #FFDB94;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: #395392;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: #0D408E;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

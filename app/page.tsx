@@ -57,7 +57,7 @@ function Header() {
 	    <li>Strong writing skills and a true lover of challenges.</li>
 	  </ul>
 	</section>
-	<div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-o"></div>
+	<div className="w-[1px] border-1 border-solid border-[--foreground] mr-1 ml-1 p-0"></div>
 	
 	<nav className="w-2/4 h-full flex flex-col gap-2 justify-start">
 	    <span className="w-full text-xs"><Dot text="nunesteixeiradaniel12@gmail.com"/></span>
@@ -156,7 +156,7 @@ function SelectableButton({text, click}) {
     if (click) click(new_select, text);
     setSelected(new_select);
   };
-  return <button onClick={clicked} className="shitty-button w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{text}</button>;
+  return <button onClick={clicked} className="w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{text}</button>;
 }
 
 function ExperienceCard({title, content, category}) {
@@ -173,27 +173,45 @@ function Experience() {
   const [ filters, setFilters ] = useState<string[]>([]);
   // TODO: Refactoring needed.
   const cards = [
+    ["Cristal Brindes", (
+      <>
+        <p>
+	  General refactoring of the brazilian gifts and varieties e-commerce website Cristal Brindes: <a className="" href="https://cristalbrindes.com.br/" target="_blank">https://cristalbrindes.com.br/</a>
+	</p>
+      </>
+    ), ["JavaScript"]],
+    ["Personal Website Gooffee", (
+      <>
+        <p>
+	  A simple blog-like website written with React: <a className="" href="https://asgooffeeasme.neocities.org" target="_blank">https://asgooffeeasme.neocities.org</a>
+	</p>
+      </>
+    ), ["React", "JavaScript"]],
     ["C/C++ Developer", (
       <>
         <p>
-	  C/C++ Student, being the most relevant projects a Graphics game engine which's still in development and generalist CLI applications.
+	  C/C++ Student, being the most relevant projects a Graphics game engine which's and a simple bootable Operating System. Moreover, I also had classes of C# in the ISPAC "Mentes Brilhantes" web programming course.
 	</p>
-        <ul className="list-disc list-inside m-2 pl-3">
-	  <li>TESTE</li>
-	</ul>
       </>
-    ), "C/C++"],
-    ["title 2", "text_body 2", "Linux"],
+    ), ["C/C++"]],
   ];
   
-  const setting_filter = (selected, text) => { 
-    const new_filters = [...filters];
-    if (selected === true) new_filters.push(text);
+  let filtered_cards = cards.filter(card =>
+    filters.length === 0 ? true : card[2].some(tag => filters.includes(tag))
+  );
+  
+  const setting_filter = (selected: boolean, texts: string) => { 
+    let new_filters = [...filters];
+    if (selected === true) {
+      new_filters.push(texts);
+    }
     else {
-      const idx = new_filters.indexOf(text);
-      if (idx > -1) new_filters.splice(idx, 1);
+      new_filters = new_filters.filter(f => !texts.includes(f));
     }
     setFilters(new_filters);
+    filtered_cards = cards.filter(card =>
+      filters.length === 0 ? true : card[2].some(tag => filters.includes(tag))
+    );
     return;
   };
   
@@ -231,8 +249,7 @@ function Experience() {
       <section className="w-full h-full p-5"> {/* Experience Panel */}
         <span className="text-xl font-bold">Experience</span>
 	<div className="flex flex-col justify-start pt-5 pb-5 gap-2">
-	  {/*TODO: need urgent refactoring. */}
-	  { filters.length === 0 ? (<>{cards.map((cards, idx) => <ExperienceCard key={idx} title={cards[0]} content={cards[1]} />)}</>) : (<>{filters.map((f, i) => (<div key={i}>{cards.map((cards, idx) => (cards[2] === f) ? <ExperienceCard key={idx} title={cards[0]} content={cards[1]} /> : <span key={idx}></span>)}</div>) )}</>) }
+	  { filtered_cards.map((cards, idx) => <ExperienceCard key={idx} title={cards[0]} content={cards[1]} />)}
 	</div>
       </section>
       
