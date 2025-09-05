@@ -119,7 +119,7 @@ function Timeline() {
         <div className="w-full flex flex-row justify-end gap-1">
 	  <Line text_length={25} text="JavaScript Developer" colour="orange" width="40%" tooltip_title="Non-professional JavaScript Developer" tooltip_text="For small groups of game development and personal use."/>
 	  <span className="w-full"></span>
-          <Line text_length={35} text="B.S. in Journalism and Computer Science" colour="red" width="35%" tooltip_title="B.S. in Journalism and Computer Science" tooltip_text="Universidade Estadual Paulista 'Júlio de Mesquita Filho' (UNESP)" />
+          <Line text_length={35} text="B.S. in Journalism" colour="red" width="35%" tooltip_title="B.S. in Journalism" tooltip_text="Universidade Estadual Paulista 'Júlio de Mesquita Filho' (UNESP)" />
 	</div>
 	<Line text_length={25} text="C/C++ Developer" colour="cyan" width="70%" tooltip_title="C/C++ Developer" tooltip_text="Student and non-professional contact" />
 	<div className="w-full flex flex-row items-center justify-end gap-1">
@@ -129,8 +129,12 @@ function Timeline() {
 	  <Line text_length={25} text="Front-end Developer" colour="orange" width="25%" tooltip_title="Front-end Developer" tooltip_text="Desperta Startup (May, 2025 - )" />
 	</div>
 	<div className="w-full flex flex-row items-center justify-end">
-          <Line text_length={10} text="E-commerce website" colour="cyan" width="10%" tooltip_title="E-Commerce WebSite" tooltip_text="BNAP Atas públicas, for Desperta Startup." />
-	  <div className="w-[25px]"></div>
+          <Line text_length={10} text="E-commerce Website" colour="cyan" width="5%" tooltip_title="E-Commerce WebSite" tooltip_text="Cristal Brindes, for Desperta Startup." />
+	  <span className="w-[5px]"></span>
+          <Line text_length={10} text="Government Website" colour="cyan" width="8%" tooltip_title="Government website" tooltip_text="BNAP Atas públicas, for Desperta Startup." />
+	  <span className="w-[5px]"></span>
+          <Line text_length={10} text="Security Website" colour="cyan" width="8%" tooltip_title="Website version of security application" tooltip_text="Engseg, for Desperta Startup." />
+	  <span className="w-[5px]"></span>
 	</div>
       </div>
       
