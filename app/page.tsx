@@ -177,41 +177,79 @@ function Experience() {
   const [ filters, setFilters ] = useState<string[]>([]);
   // TODO: Refactoring needed.
   const cards = [
-    ["Engseg", (
-      <>
-        <p>
-	  Engineering security website version of Engseg android application:<br /> <a className="" href="https://engseg-v1.pages.dev" target="_blank">https://engseg-v1.pages.dev</a>
-	</p>
-      </>
-    ), ["Next.js", "Tailwind", "PostgreSQL", "MySQL", "Typescript"]],
     ["BNAP atas públicas", (
       <>
         <p>
-	  Brazil's government e-bank of legal documents:<br /> <a className="" href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
+	  Brazil's government e-bank of legal documents.<br /> <a className="" href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
 	</p>
       </>
     ), ["Next.js", "Tailwind", "PostgreSQL", "Redux", "Typescript"]],
+    ["Engseg", (
+      <>
+        <p>
+	  Engineering security website version of Engseg android application.<br /> <a className="" href="https://engseg-v1.pages.dev" target="_blank">https://engseg-v1.pages.dev</a>
+	</p>
+      </>
+    ), ["Next.js", "Tailwind", "PostgreSQL", "MySQL", "Typescript", "Git"]],
     ["Cristal Brindes", (
       <>
         <p>
-	  General refactoring of the brazilian gifts and varieties e-commerce website Cristal Brindes: <a className="" href="https://cristalbrindes.com.br/" target="_blank">https://cristalbrindes.com.br/</a>
+	  General refactoring of the brazilian gifts and varieties e-commerce website Cristal Brindes. <br /><a className="" href="https://cristalbrindes.com.br/" target="_blank">https://cristalbrindes.com.br/</a>
 	</p>
       </>
     ), ["JavaScript", "PostgreSQL", "HTML", "CSS"]],
+    ["Execurator static website generator (WIP)", (
+      <>
+        <p>
+	  Execurator is meant to be an all-in-one single-binary static website generator for Razomentalist, my new project of personal website.<br /> <a className="" href="https://asgooffeeasme.neocities.org" target="_blank">https://asgooffeeasme.neocities.org</a>
+	</p>
+      </>
+    ), ["C/C++", "HTML", "CSS", "Git"]],
+    ["City builder game", (
+      <>
+        <p>
+	  A tiny city builder game for web written with Next.js, Tailwind and PostgreSQL (supabase).<br /> <a className="" href="https://github.com/nobody-but-me/city_builder.git" target="_blank">https://github.com/nobody-but-me/city_builder.git</a>
+	</p>
+      </>
+    ), ["Next.js", "Typescript", "PostgreSQL", "Tailwind", "Git"]],
+    ["Itoi", (
+      <>
+        <p>
+	  A text editor for web written with Next.js and Tailwind.<br /> <a className="" href="https://github.com/nobody-but-me/itoi.git" target="_blank">https://github.com/nobody-but-me/itoi.git</a>
+	</p>
+      </>
+    ), ["Next.js", "Typescript", "PostgreSQL", "Tailwind", "Git"]],
     ["Personal Website Gooffee", (
       <>
         <p>
-	  A simple blog-like website written with React: <a className="" href="https://asgooffeeasme.neocities.org" target="_blank">https://asgooffeeasme.neocities.org</a>
+	  A simple blog-like website written with React.<br /> <a className="" href="https://asgooffeeasme.neocities.org" target="_blank">https://asgooffeeasme.neocities.org</a>
 	</p>
       </>
-    ), ["React", "HTML", "CSS", "JavaScript"]],
-    ["C/C++ Developer", (
+    ), ["React", "HTML", "CSS", "JavaScript", "Git"]],
+    ["MoL Game Engine (WIP)", (
       <>
         <p>
-	  C/C++ Student, being the most relevant projects a Graphics game engine which's and a simple bootable Operating System. Moreover, I also had classes of C# in the ISPAC "Mentes Brilhantes" web programming course.
+	  A 2D Game Engine written in C++ and using OpenGL as Graphics API.<br />
+	  <a href="https://github.com/nobody-but-me/MoL25.git" target="_blank">https://github.com/nobody-but-me/MoL25.git</a>
 	</p>
       </>
-    ), ["C/C++"]],
+    ), ["C/C++", "OpenGL", "Git", ]],
+    ["Golf-game", (
+      <>
+        <p>
+	  A game written from scratch with C++ and OpenGL.<br />
+	  <a href="https://github.com/nobody-but-me/Golf-game.git" target="_blank">https://github.com/nobody-but-me/Golf-game.git</a>
+	</p>
+      </>
+    ), ["C/C++", "OpenGL", "Git" ]],
+    ["Hello World Operating System", (
+      <>
+        <p>
+	  Simple bootable operating system written in C.<br />
+	  <a href="https://github.com/nobody-but-me/EveOs-prototype" target="_blank">https://github.com/nobody-but-me/EveOs-prototype</a>
+	</p>
+      </>
+    ), ["C/C++", "Git", "Linux" ]],
   ];
   
   let filtered_cards = cards.filter(card =>
@@ -246,6 +284,7 @@ function Experience() {
 	  <SelectableButton text="HTML"       click={setting_filter} />
 	  <SelectableButton text="CSS"        click={setting_filter} />
 	  <SelectableButton text="Typescript" click={setting_filter} />
+	  <SelectableButton text="Tailwind"   click={setting_filter} />
 	</div>
 	<p className="mt-2 mb-2">Back-end</p>
 	<div className="w-full h-full grid grid-cols-2 gap-2 justify-start">
