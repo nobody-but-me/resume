@@ -63,7 +63,7 @@ function Header() {
 	    <span className="w-full text-xs"><Dot text="nunesteixeiradaniel12@gmail.com"/></span>
 	    <span className="w-full text-xs"><Dot text="55+ (16) 99355-2723" /></span>
 	    <span className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></span>
-	    <span className="w-full text-xs"><a target="blank" ><Dot text="Resume" /></a></span>
+	    <span className="w-full text-xs"><a target="blank" href="https://raw.githubusercontent.com/nobody-but-me/resume/main/Resume.pdf"><Dot text="Resume" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="https://asgooffeeasme.neocities.org"><Dot text="Personal Website" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="www.linkedin.com/in/daniel-nunes-teixeira"><Dot text="Linkedin" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="https://github.com/nobody-but-me"><Dot text="GitHub" /></a></span>
