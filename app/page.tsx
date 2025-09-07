@@ -1,8 +1,8 @@
 
 "use client";
 import React, { useState, useEffect } from 'react';
-import picture from "../public/resume-picture.webp";
 
+import picture from "../public/untitled.jpg";
 
 function Tooltip({ children, content }) {
   // TODO: Style tooltip.
@@ -44,7 +44,7 @@ function Header() {
     <section className="w-full h-auto p-5 flex flex-col gap-3 bg-[#101010] rounded-sm"> {/* TODO: make this whole layout responsible. */}
       <div className="w-full h-full flex flex-row gap-5 justify-between">
         <section className="h-full flex flex-col justify-center items-center">
-	  <img src={picture.src} alt="pipi(picture-picture)" className="w-[160px] h-[100px] rounded-full" /> {/* TODO: prepare another picture. */}
+	  <img src={picture.src} alt="pipi(picture-picture)" className="w-50 rounded-full" /> {/* TODO: prepare another picture. */}
 	</section>
         <section className="w-full h-full p-3">
 	  <span className="text-xl font-bold">Daniel Teixeira</span>
@@ -52,7 +52,7 @@ function Header() {
 	    Front End Developer
 	  </p>
 	  <ul className="list-disc list-inside m-2 pl-3">
-	    <li>Three+ years of React, Javscript and Typescript.</li>
+	    <li>Four+ years of React, Javscript and Typescript.</li>
 	    <li>Open to work in a fast and highly collaborative environment, truly being the "swiss army knife" for every kind of problem.</li>
 	    <li>Strong writing skills and a true lover of challenges.</li>
 	  </ul>
@@ -63,18 +63,20 @@ function Header() {
 	    <span className="w-full text-xs"><Dot text="nunesteixeiradaniel12@gmail.com"/></span>
 	    <span className="w-full text-xs"><Dot text="55+ (16) 99355-2723" /></span>
 	    <span className="h-[1px border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></span>
+	    <span className="w-full text-xs"><a target="blank" ><Dot text="Resume" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="https://asgooffeeasme.neocities.org"><Dot text="Personal Website" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="www.linkedin.com/in/daniel-nunes-teixeira"><Dot text="Linkedin" /></a></span>
 	    <span className="w-full text-xs"><a target="blank" href="https://github.com/nobody-but-me"><Dot text="GitHub" /></a></span>
 	</nav>
       </div>
       <div className="h-[1px  border-1 border-solid border-[--foreground] mb-1 mt-1 p-0"></div>
-      <nav className="w-full h-1/4 flex flex-row justify-center items-center text-xs">
+      <nav className="w-full h-1/4 flex flex-row justify-center items-center text-sm">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 ml-2 mr-2">
 	  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
 	  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
 	</svg>
-	Bauru, São Paulo - Brazil</nav>
+	Bauru, São Paulo - Brazil
+      </nav>
     </section>
   );
 }
@@ -198,10 +200,10 @@ function Experience() {
 	</p>
       </>
     ), ["JavaScript", "PostgreSQL", "HTML", "CSS"]],
-    ["Execurator static website generator (WIP)", (
+    ["Carol static website generator (WIP)", (
       <>
         <p>
-	  Execurator is meant to be an all-in-one single-binary static website generator for Razomentalist, my new project of personal website.<br /> <a className="" href="https://asgooffeeasme.neocities.org" target="_blank">https://asgooffeeasme.neocities.org</a>
+	  Carol is meant to be an all-in-one single-binary static website generator for Razomentalist, my new project of personal website.<br /> <a className="" href="https://github.com/nobody-but-me/carol.git" target="_blank">https://github.com/nobody-but-me/carol.git</a>
 	</p>
       </>
     ), ["C/C++", "HTML", "CSS", "Git"]],
