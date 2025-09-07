@@ -10,7 +10,7 @@ function Tooltip({ children, content }) {
   
   useEffect(() => {
     document.addEventListener('mousemove', function(e) {
-      let _content = document.getElementById("tooltip_content");
+      const _content = document.getElementById("tooltip_content");
       if (_content != null) {
         _content.style.left = (e.pageX + 20) + 'px';
         _content.style.top  = (e.pageY + 20) + 'px';
@@ -151,10 +151,6 @@ function Timeline() {
   );
 }
 
-function Button(props) {
-  return <button onClick={props.click} className="w-full bg-[#242424] pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:bg-[#070707] hover:scale-105 transition-all">{props.name}</button>;
-}
-
 function SelectableButton({text, click}) {
   const [selected, setSelected] = useState(false);
   const clicked = () => {
@@ -165,7 +161,7 @@ function SelectableButton({text, click}) {
   return <button onClick={clicked} className="w-full pb-1 pt-1 text-sm cursor-pointer rounded-sm text-md hover:scale-105 transition-all" style={{ backgroundColor: selected ? '#070707' : '#242424' }}>{text}</button>;
 }
 
-function ExperienceCard({title, content, category}) {
+function ExperienceCard({title, content}) {
   return (
     <div className="bg-[#242424] w-full p-3 flex flex-col rounded-sm">
       <span className="text-xl font-bold">{title}</span>
@@ -182,7 +178,7 @@ function Experience() {
     ["BNAP atas públicas", (
       <>
         <p>
-	  Brazil's government e-bank of legal documents.<br /> <a className="" href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
+	  Brazil's government e-bank of legal documents.<br /> <a href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
 	</p>
       </>
     ), ["Next.js", "Tailwind", "PostgreSQL", "Redux", "Typescript"]],
