@@ -53,7 +53,7 @@ function Header() {
 	  </p>
 	  <ul className="list-disc list-inside m-2 pl-3">
 	    <li>Four+ years of React, Javscript and Typescript.</li>
-	    <li>Open to work in a fast and highly collaborative environment, truly being the "swiss army knife" for every kind of problem.</li>
+	    <li>Open to work in a fast and highly collaborative environment, truly being the &apos;swiss army knife&apos; for every kind of problem.</li>
 	    <li>Strong writing skills and a true lover of challenges.</li>
 	  </ul>
 	</section>
@@ -178,7 +178,7 @@ function Experience() {
     ["BNAP atas públicas", (
       <>
         <p>
-	  Brazil's government e-bank of legal documents.<br /> <a href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
+	  Brazil&apos;s government e-bank of legal documents.<br /> <a href="https://www.produtosbnap.com.br/pagina/quem-somos.html" target="_blank">https://www.produtosbnap.com.br/pagina/quem-somos.html</a>
 	</p>
       </>
     ), ["Next.js", "Tailwind", "PostgreSQL", "Redux", "Typescript"]],
